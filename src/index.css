@@ -1,0 +1,89 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	font-family: "Inter", Arial, sans-serif;
+	background-color: #202121;
+	padding: 20px;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+}
+
+main {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+header {
+	text-align: center;
+	background-color: #6a36a9;
+	border-radius: 14px;
+	min-width: 650px;
+	box-shadow: 2px 2px 2px 2px #532984;
+}
+
+header > h1 {
+	font-size: 4rem;
+	font-weight: 400;
+	color: white;
+}
+
+section.task-header {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	margin-top: 120px;
+}
+
+section.task-header > h2 {
+	color: white;
+	font-weight: 300;
+}
+
+section.task-container {
+	display: flex;
+	width: 75vw;
+	flex-direction: row;
+	overflow-y: auto;
+	height: 60vh;
+	justify-content: space-between;
+
+}
+
+section.task-container > .task-element{
+	width: 40vw;
+	min-width: 250px;
+	height: 64px;
+	background-color: #262626;
+	border-radius: 12px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 10px;
+	text-align: left;
+}
+
+section.task-container > .task-element > .task-text{
+	margin: 0;
+	flex-grow: 1;
+}
+
+section.task-container > .task-element > .icons{
+	display: flex;
+	gap: 10px;
+	align-items: center;
+}
+
+section.task-container > .task-element > .icons img{
+	cursor: pointer;
+	width: 24px;
+	height: 24px;
+}
+
+
+
