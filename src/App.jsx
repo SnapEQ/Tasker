@@ -15,6 +15,21 @@ function App() {
           <Task text="blah"/>
           <Task text="blah"/>
           <Task text="blah"/>
+          <Task text="blah"/>
+          <Task text="blah"/>
+          <Task text="blah"/>
+          <Task text="blah"/>
+          <Task text="blah"/>
+          <Task text="blah"/>
+          <Task text="blah"/>
+          <Task text="blah"/>
+          <Task text="blah"/>
+          <Task text="blah"/>
+          <Task text="blah"/>
+          <Task text="blah"/>
+          <Task text="blah"/>
+          <Task text="blah"/>
+          <Task text="blah"/>
       </section>
 
       <button className='add-new-task'>Add new task</button>

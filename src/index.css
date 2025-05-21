@@ -48,16 +48,16 @@ section.task-header > h2 {
 section.task-container {
 	display: flex;
 	width: 75vw;
-	flex-direction: row;
-	overflow-y: auto;
+	flex-wrap: wrap;
+	justify-content: center;
 	height: 60vh;
+	overflow-y: auto;
+	gap: 16px;
 	justify-content: space-between;
-
 }
 
 section.task-container > .task-element{
-	width: 40vw;
-	min-width: 250px;
+	width: calc(50% - 8px);
 	height: 64px;
 	background-color: #262626;
 	border-radius: 12px;
@@ -66,6 +66,7 @@ section.task-container > .task-element{
 	align-items: center;
 	padding: 10px;
 	text-align: left;
+	color:white;
 }
 
 section.task-container > .task-element > .task-text{
