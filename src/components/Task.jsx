@@ -7,7 +7,7 @@ import edit_svg from "../assets/edit.svg";
 function Task(props){
 
     return (
-    <div className="task-element">
+    <div className="task-element" key={props.id}>
         <p className="task-text">{props.text}</p>
         <div className="icons">
             <img src={checkbox_svg} alt="checkbox"></img>

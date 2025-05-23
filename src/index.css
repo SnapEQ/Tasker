@@ -16,20 +16,27 @@ main {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	width: 100%;
+	max-width: 800px;
+	padding: 2rem;
 }
 
 header {
 	text-align: center;
 	background-color: #6a36a9;
 	border-radius: 14px;
-	min-width: 650px;
-	box-shadow: 2px 2px 2px 2px #532984;
+	width: 100%;
+	max-width: 400px;
+	padding: 1rem;
+	margin-bottom: 2rem;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
 header > h1 {
 	font-size: 4rem;
 	font-weight: 400;
 	color: white;
+	margin: 0;
 }
 
 section.task-header {
@@ -37,54 +44,68 @@ section.task-header {
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	margin-top: 120px;
+	margin-top: 32px;
+	margin-bottom: 40px;
 }
 
 section.task-header > h2 {
 	color: white;
 	font-weight: 300;
+	font-size: 1.5rem;
+	margin: 0;
 }
 
 section.task-container {
-	display: flex;
-	width: 75vw;
-	flex-wrap: wrap;
+	display: grid;
+	grid-template-columns: minmax(400px, 500px) minmax(400px, 500px);
 	justify-content: center;
-	height: 60vh;
-	overflow-y: auto;
-	gap: 16px;
-	justify-content: space-between;
+	align-items: center;
+	gap: 1rem;
+	column-gap: 200px;
+	width: 100%;
+	max-width: 800px;
+	margin: 0 auto;
+	padding: 20px;
 }
 
-section.task-container > .task-element{
-	width: calc(50% - 8px);
+@media screen and (max-width: 1000px) {
+	section.task-container {
+		grid-template-columns: 500px;
+	}
+}
+
+section.task-container > .task-element {
+	width: 100%;
 	height: 64px;
-	background-color: #262626;
-	border-radius: 12px;
+	background-color: #1a1a1a;
+	border-radius: 8px;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	padding: 10px;
+	padding: 1rem 1.5rem;
 	text-align: left;
-	color:white;
+	color: white;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-section.task-container > .task-element > .task-text{
+section.task-container > .task-element > .task-text {
 	margin: 0;
 	flex-grow: 1;
+	color: white;
+	font-size: 0.95rem;
+	font-weight: 300;
 }
 
-section.task-container > .task-element > .icons{
+section.task-container > .task-element > .icons {
 	display: flex;
-	gap: 10px;
+	gap: 1rem;
 	align-items: center;
 }
 
-section.task-container > .task-element > .icons img{
+section.task-container > .task-element > .icons img {
 	cursor: pointer;
-	width: 24px;
-	height: 24px;
+	width: 20px;
+	height: 20px;
+	opacity: 0.8;
+	transition: opacity 0.2s;
 }
-
-
-
