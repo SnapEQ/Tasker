@@ -5,9 +5,9 @@ import { nanoid } from 'nanoid';
 
 // TO DOs:
 // -  ✅handle adding new tasks
-// -  refactor the task to be a form
+// -  ✅refactor the task to be a form
 // -  style the task list
-// -  add task features
+// -  ✅add task features
 
 
 function App() {
@@ -16,8 +16,51 @@ function App() {
 
 
   const tasksArray = tasks.map((task) => {
-    return <Task key={task.id} id={task.id} text={task.text} />
+    return <Task
+      key={task.id}
+      id={task.id}
+      text={task.text}
+      completed={task.completed}
+      isInEditMode={task.isInEditMode}
+      doneFunc={task.handleDone}
+      deleteFunc={task.handleDelete}
+      editFunc={task.handleEdit}
+      updateTextFunc={task.handleUpdateTaskText} />
   })
+
+  function handleDone(id) {
+    setTasks(prevTasks => prevTasks.map((task) => {
+      if (task.id === id) {
+        return { ...task, completed: !task.completed }
+      }
+      return task
+    }))
+  }
+
+  function handleDelete(id) {
+    setTasks(prevTasks => prevTasks.filter((task) => {
+      return task.id !==id
+    }))
+  }
+
+  function handleEdit(id){
+    console.log("Event fired")
+    setTasks(prevTasks => prevTasks.map((task)=>{
+      if(task.id === id) {
+        return {...task, isInEditMode: !task.isInEditMode}
+      }
+      return task
+    }))
+  }
+
+  function handleUpdateTaskText(id, newText){
+    setTasks(prevTasks => prevTasks.map((task) => {
+      if(task.id === id){
+        return {...task, text: newText}
+      }
+      return task;
+    }))
+  }
 
 
 
@@ -27,14 +70,19 @@ function App() {
     const newTask = {
       id: nanoid(),
       text: "New task",
-      completed: false
+      completed: false,
+      isInEditMode: false,
+      handleDone: handleDone,
+      handleDelete: handleDelete,
+      handleEdit: handleEdit,
+      handleUpdateTaskText: handleUpdateTaskText
+
     }
 
     setTasks(prevTasks => [...prevTasks, newTask]);
   }
 
 
-  console.log(tasks)
 
   return (
     <main>
