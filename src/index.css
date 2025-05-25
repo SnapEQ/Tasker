@@ -2,8 +2,6 @@
 	box-sizing: border-box;
 }
 
-
-
 body {
 	margin: 0;
 	font-family: "Inter", Arial, sans-serif;
@@ -12,41 +10,85 @@ body {
 }
 
 :root {
-  /* Light theme variables */
-  --light-background: #ffffff;
-  --light-text: #333333;
-  --light-task-bg: #f5f5f5;
-  --light-icon-color: #666666;
-  
+	/* Light theme variables */
+	--light-background: #ffffff;
+	--light-background-theme-button: #f5f5f5;
+	--light-text: #333333;
+	--light-task-bg: #d3d3d3;
+	--light-icon-color: #666666;
+	
 
-  /* Dark theme variables */
-  --dark-background: #202121;
-  --dark-text: #ffffff;
-  --dark-task-bg: #1a1a1a;
-  --dark-icon-color: #ffffff;
+	/* Dark theme variables */
+	--dark-background: #202121;
+	--dark-background-theme-button: #1a1a1a;
+	--dark-text: #ffffff;
+	--dark-task-bg: #1a1a1a;
+	--dark-icon-color: #ffffff;
 }
 
 .light-theme {
-  background-color: var(--light-background);
-  color: var(--light-text);
+	background-color: var(--light-background);
+	color: var(--light-text);
 }
 
 .dark-theme {
-  background-color: var(--dark-background);
-  color: var(--dark-text);
+	background-color: var(--dark-background);
+	color: var(--dark-text);
 }
 
 .light-theme .task-element {
 	background-color: var(--light-task-bg);
+	color: var(--light-text);
 }
+
+.light-theme .task-header{
+	color: var(--light-text);
+}
+
+.light-theme .task-text {
+	color: var(--light-text);
+}
+
+.light-theme .icon {
+	color: var(--light-icon-color);
+}
+
+
+.light-theme .theme-button{
+	background-color: var(--light-background-theme-button);
+}
+
+.light-theme .task-input{
+	background-color: var(--light-background);
+	color: var(--light-text);
+}
+
 
 .dark-theme .task-element {
 	background-color: var(--dark-task-bg);
 }
 
-.dark-theme .icon {
-  color: var(--dark-icon-color);
+.dark-theme .task-header{
+	color: var(--dark-text);
 }
+
+.dark-theme .task-text {
+	color: var(--dark-text);
+}
+
+.dark-theme .icon {
+	color: var(--dark-icon-color);
+}
+
+.dark-theme .theme-button{
+	background-color: var(--dark-background-theme-button);
+}
+
+.dark-theme .task-input{
+	background-color: var(--dark-background);
+	color: var(--dark-text);
+}
+
 
 main {
 	display: flex;
@@ -60,15 +102,15 @@ main {
 }
 
 .task-element {
-  transition: background-color 0.3s ease;
-  padding: 1rem;
-  margin: 0.5rem 0;
-  border-radius: 8px;
+	transition: background-color 0.3s ease;
+	padding: 1rem;
+	margin: 0.5rem 0;
+	border-radius: 8px;
 }
 
 .icon {
-  transition: color 0.3s ease;
-  font-size: 1.2rem;
+	transition: color 0.3s ease;
+	font-size: 1.2rem;
 }
 
 header {
@@ -89,7 +131,16 @@ header > h1 {
 	margin: 0;
 }
 
-section.task-header {
+
+.theme-button{
+	border: none;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+	border-radius: 8px;
+	padding: 10px;
+	transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.task-header {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -98,14 +149,13 @@ section.task-header {
 	margin-bottom: 40px;
 }
 
-section.task-header > h2 {
-	color: white;
+.task-header > h2 {
 	font-weight: 300;
 	font-size: 1.5rem;
 	margin: 0;
 }
 
-section.task-container {
+.task-container {
 	display: grid;
 	grid-template-columns: 500px 500px;
 	justify-content: center;
@@ -119,40 +169,37 @@ section.task-container {
 }
 
 @media screen and (max-width: 1200px) {
-	section.task-container {
+	.task-container {
 		grid-template-columns: 500px;
 	}
 }
 
-section.task-container > .task-element {
+.task-element {
 	width: 100%;
 	height: 64px;
-	background-color: #1a1a1a;
 	border-radius: 8px;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	padding: 1rem 1.5rem;
 	text-align: left;
-	color: white;
 	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-section.task-container > .task-element > .task-text {
+.task-text {
 	margin: 0;
 	flex-grow: 1;
-	color: white;
 	font-size: 0.95rem;
 	font-weight: 300;
 }
 
-section.task-container > .task-element > .icons {
+.icons {
 	display: flex;
 	gap: 1rem;
 	align-items: center;
 }
 
-section.task-container > .task-element > .icons button {
+.icons button {
 	background-color: rgba(255, 255, 255, 0);
 	border: none;
 	color: rgb(255, 255, 255);
@@ -163,9 +210,7 @@ section.task-container > .task-element > .icons button {
 	transition: opacity 0.2s;
 }
 
-
-
-.icon{
+.icon {
 	width: 100%;
 	height: 100%;
 }
@@ -180,30 +225,28 @@ button.add-new-task {
 	font-size: 15px;
 }
 
-button.add-new-task:hover{
+button.add-new-task:hover {
 	background-color: #532a85;
 }
 
-button.add-new-task:active{
+button.add-new-task:active {
 	background-color: #402066;
 }
 
-
-.task-form{
+.task-form {
 	display: flex;
 }
 
-.task-input{
+.task-input {
 	border: none;
 	font-size: 0.95rem;
 	font-weight: 300;
-	background-color: #3b3a3a;
 	color: white;
 	border-radius: 8px;
-
+	transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-button.task-submit{
+button.task-submit {
 	border: none;
 	border-radius: 8px;
 	margin-left: 10px;
@@ -211,17 +254,13 @@ button.task-submit{
 	color: white;
 	font-weight: 300;
 	padding: 5px;
-	
+	transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-button.task-submit:hover{
-
+button.task-submit:hover {
 	background-color: #532a85;
-	
 }
 
-button.task-submit:active{
-
+button.task-submit:active {
 	background-color: #402066;
-	
 }

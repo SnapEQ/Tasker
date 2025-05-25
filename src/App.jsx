@@ -8,7 +8,7 @@ import './index.css'
 // TO DOs:
 // -  ✅handle adding new tasks
 // -  ✅refactor the task to be a form
-// -  style the task list
+// -  ✅style the task list
 // -  ✅add task features
 
 const STORAGE_KEY = 'tasker-tasks';
@@ -125,10 +125,10 @@ function App() {
     <main className={isDark ? 'dark-theme' : 'light-theme'}>
       <header>
         <h1>Tasker</h1>
-        <button onClick={toggleTheme}>
+      </header>
+        <button onClick={toggleTheme} className='theme-button'>
           {isDark ? '☀️' : '🌙'}
         </button>
-      </header>
       <section className='task-header'>
         <h2>Your tasks involve:</h2>
       </section>
