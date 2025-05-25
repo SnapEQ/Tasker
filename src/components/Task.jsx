@@ -16,7 +16,7 @@ function Task(props) {
     }
 
     const message = isInEditMode ?
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="task-form">
             <input 
                 className="task-input"
                 type="text"

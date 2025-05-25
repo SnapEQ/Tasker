@@ -57,7 +57,7 @@ section.task-header > h2 {
 
 section.task-container {
 	display: grid;
-	grid-template-columns: minmax(400px, 500px) minmax(400px, 500px);
+	grid-template-columns: 500px 500px;
 	justify-content: center;
 	align-items: center;
 	gap: 1rem;
@@ -68,7 +68,7 @@ section.task-container {
 	padding: 20px;
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1200px) {
 	section.task-container {
 		grid-template-columns: 500px;
 	}
@@ -113,7 +113,65 @@ section.task-container > .task-element > .icons button {
 	transition: opacity 0.2s;
 }
 
+
+
 .icon{
 	width: 100%;
 	height: 100%;
+}
+
+button.add-new-task {
+	border-radius: 8px;
+	border: none;
+	background-color: #6a36a9;
+	color: white;
+	padding: 10px;
+	font-weight: 400;
+	font-size: 15px;
+}
+
+button.add-new-task:hover{
+	background-color: #532a85;
+}
+
+button.add-new-task:active{
+	background-color: #402066;
+}
+
+
+.task-form{
+	display: flex;
+}
+
+.task-input{
+	border: none;
+	font-size: 0.95rem;
+	font-weight: 300;
+	background-color: #3b3a3a;
+	color: white;
+	border-radius: 8px;
+
+}
+
+button.task-submit{
+	border: none;
+	border-radius: 8px;
+	margin-left: 10px;
+	background-color: #6a36a9;
+	color: white;
+	font-weight: 300;
+	padding: 5px;
+	
+}
+
+button.task-submit:hover{
+
+	background-color: #532a85;
+	
+}
+
+button.task-submit:active{
+
+	background-color: #402066;
+	
 }

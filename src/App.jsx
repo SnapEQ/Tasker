@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Task from './components/Task'
 import { nanoid } from 'nanoid';
 
@@ -9,11 +9,39 @@ import { nanoid } from 'nanoid';
 // -  style the task list
 // -  ✅add task features
 
+const STORAGE_KEY = 'tasker-tasks';
+
+
+
 
 function App() {
 
-  const [tasks, setTasks] = useState([]);
+  const [tasks, setTasks] = useState(() => {
+    const savedTasks = localStorage.getItem(STORAGE_KEY);
 
+    if(savedTasks){
+      const parsedTasks = JSON.parse(savedTasks);
+
+      return parsedTasks.map(task => ({
+        ...task,
+        isInEditMode: false,
+        handleDone,
+        handleDelete,
+        handleEdit,
+        handleUpdateTaskText
+      }));
+    }
+    return [];
+  });
+
+  const saveToLocalStorage = (tasks) => {
+    const tasksToSave = tasks.map(({ isInEditMode, handleDone, handleDelete, handleEdit, handleUpdateTaskText, ...rest }) => rest);
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(tasksToSave));
+};
+
+  useEffect(()=>{
+    saveToLocalStorage(tasks);
+  }, [tasks])
 
   const tasksArray = tasks.map((task) => {
     return <Task
