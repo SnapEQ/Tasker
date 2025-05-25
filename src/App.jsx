@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react'
 import Task from './components/Task'
 import { nanoid } from 'nanoid';
+import { ThemeProvider, useTheme } from './ThemeContext';
+import './index.css'
 
 
 // TO DOs:
@@ -12,10 +14,18 @@ import { nanoid } from 'nanoid';
 const STORAGE_KEY = 'tasker-tasks';
 
 
+function AppWrapper(){
+  return(
+    <ThemeProvider>
+        <App />
+    </ThemeProvider>
+  )
+}
 
 
 function App() {
 
+  const {isDark, toggleTheme} = useTheme();
   const [tasks, setTasks] = useState(() => {
     const savedTasks = localStorage.getItem(STORAGE_KEY);
 
@@ -72,7 +82,6 @@ function App() {
   }
 
   function handleEdit(id){
-    console.log("Event fired")
     setTasks(prevTasks => prevTasks.map((task)=>{
       if(task.id === id) {
         return {...task, isInEditMode: !task.isInEditMode}
@@ -113,9 +122,12 @@ function App() {
 
 
   return (
-    <main>
+    <main className={isDark ? 'dark-theme' : 'light-theme'}>
       <header>
         <h1>Tasker</h1>
+        <button onClick={toggleTheme}>
+          {isDark ? '☀️' : '🌙'}
+        </button>
       </header>
       <section className='task-header'>
         <h2>Your tasks involve:</h2>
@@ -130,4 +142,4 @@ function App() {
   )
 }
 
-export default App
+export default AppWrapper
